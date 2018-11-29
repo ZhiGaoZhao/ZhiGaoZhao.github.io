@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.zhaozg.top/"/>
-  <updated>2018-11-29T17:06:25.134Z</updated>
+  <updated>2018-11-29T17:10:37.444Z</updated>
   <id>https://blog.zhaozg.top/</id>
   
   <author>
@@ -21,9 +21,9 @@
     <link href="https://blog.zhaozg.top/2018/11/30/1/"/>
     <id>https://blog.zhaozg.top/2018/11/30/1/</id>
     <published>2018-11-29T16:21:12.000Z</published>
-    <updated>2018-11-29T17:06:25.134Z</updated>
+    <updated>2018-11-29T17:10:37.444Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="http://daisy.eicp.vip/video/index.html" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><iframe src="//player.bilibili.com/player.html?aid=29346176&cid=50996957&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>]]></content>
     
     <summary type="html">
     
