@@ -9,5 +9,5 @@ Disallow: /fonts/
 Disallow: /vendors/
 Disallow: /fancybox/
 
-Sitemap: http://blog.zhaozg.top/sitemap.xml
-Sitemap: http://blog.zhaozg.top/baidusitemap.xml
+Sitemap: https://blog.zhaozg.top/sitemap.xml
+Sitemap: https://blog.zhaozg.top/baidusitemap.xml
