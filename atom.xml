@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://blog.zhaozg.top/"/>
-  <updated>2019-01-10T15:55:16.108Z</updated>
+  <updated>2019-01-10T15:56:54.679Z</updated>
   <id>https://blog.zhaozg.top/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://blog.zhaozg.top/2019/01/10/1/"/>
     <id>https://blog.zhaozg.top/2019/01/10/1/</id>
     <published>2019-01-09T17:15:12.000Z</published>
-    <updated>2019-01-10T15:55:16.108Z</updated>
+    <updated>2019-01-10T15:56:54.679Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="\assets\css\APlayer.min.css"><script src="\assets\js\APlayer.min.js" class="aplayer-secondary-script-marker"></script><h3 id="从零开始做游戏-二-：我的第一个程序"><a href="#从零开始做游戏-二-：我的第一个程序" class="headerlink" title="从零开始做游戏(二)：我的第一个程序"></a>从零开始做游戏(二)：我的第一个程序</h3><p>—-逃梦</p><h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>&emsp;&emsp;Construct 2是一款HTML5游戏开发引擎，但是在编程界大部分的第一个程序都是“Hello World”的程序，所以，今天，我们也来用Construct 2来编写我们的第一个“Hello World”程序。但是，在开始编写这个程序之前，让我们先来了解一下Construct 2的界面组成，以便于后续我们知道在什么位置选择什么样的控件，进行什么样的操作。</p><h2 id="Construct-2的界面组成"><a href="#Construct-2的界面组成" class="headerlink" title="Construct 2的界面组成"></a>Construct 2的界面组成</h2><p><img src="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547054758550.png" alt="1547054758550"></p><p>&emsp;&emsp;Construct 2主要包含了“菜单栏”、布局窗口、项目窗口、图层窗口、对象窗口和属性窗口。</p><p>&emsp;&emsp;菜单栏：</p><p>&emsp;&emsp;&emsp;&emsp;<img src="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055069443.png" alt="1547055069443">&emsp;&emsp;该按钮用于预览我们完成的作品。 </p><p>&emsp;&emsp;&emsp;&emsp;<img src="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055152724.png" alt="1547055152724">&emsp;&emsp;该按钮用于在最终作品不能按照预期运行时，用于调试查找问题。 </p><p>&emsp;&emsp;&emsp;&emsp;<img src="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055224910.png" alt="1547055224910">&emsp;&emsp;该按钮用于将我们的作品导出为对应的应用。</p><p>&emsp;&emsp;项目窗口：该窗口用于显示我们整个作品中的文件结构及内容。 </p><p>​    对象窗口：该窗口用于显示我们添加到作品中的各个控件，编程时我们称其为对象。 </p><p>&emsp;&emsp;属性窗口：该窗口用于显示我们添加的控件的属性，我们可以通过调整该窗口中的属性值来改变控件的样式，动作等。</p><p>&emsp;&emsp;布局窗口：该窗口是整个作品主要工作的区间。</p><p>&emsp;&emsp;图层窗口：每个布局是可以添加多个图层的，比如我们可以放一个背景图层，在背景图层上放一个游戏图层，这样将不同的控件分别放置，以便于我们后续的修改和调整。 </p><p>&emsp;&emsp;对于以上内容，需要大家记住，在后面的编程过程中，我们将频繁使用它们。</p><p>&emsp;为了让大家容易理解和记忆，我们所有的操作都会尽可能的在上图标注的这几个位置进行，等大家熟练了之后，可以自行去研究其它更快捷、更灵活的操作方式。</p><h3 id="我的Hello-World"><a href="#我的Hello-World" class="headerlink" title="我的Hello World"></a>我的Hello World</h3><p>&emsp;&emsp;接下来，我将通过视频来给大家演示如何编写我们的第一个Hello World程序。视频后我将列出关键操作步骤供大家参考。</p><video src="http://zhaozg.vip/Construct2Sets/C2/Videos/Video.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"><br>your browser does not support the video tag<br></video><p>&emsp;&emsp;在这个示例中，我们主要执行了以下几个步骤：</p><ul><li>新建空白项目</li><li>修改项目名称</li><li>修改项目窗口大小</li><li>修改布局窗口大小</li><li>在布局窗口添加控件 Text</li><li>修改Text属性窗口中的 “text” 属性</li><li>预览程序</li></ul><p>&emsp;&emsp;现在，我们已经在Construct 2中写出了我们的第一个程序，接下来，我们将开始我们的游戏，动画之旅。 </p>]]></content>
     
