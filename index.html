@@ -484,6 +484,283 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.zhaozg.top/2018/12/15/1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="逃梦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逃梦红尘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/12/15/1/" itemprop="url">设计原则之里氏替换</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-15T00:21:12+08:00">
+                2018-12-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计原则/" itemprop="url" rel="index">
+                    <span itemprop="name">设计原则</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/15/1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/15/1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.4k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  9
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h3 id="设计原则之里氏替换"><a href="#设计原则之里氏替换" class="headerlink" title="设计原则之里氏替换"></a>设计原则之里氏替换</h3><p>—-逃梦</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>&emsp;&emsp;里氏替换原则。</p>
+<p>&emsp;&emsp;英文全称：Liskov Substitution Principle。</p>
+<p>&emsp;&emsp;简称：LSP</p>
+<p>&emsp;&emsp;英文定义1：If for earch object o1 of type S there is an object o2 of type T such that for all programs P defined in items of T, the behavior of P is unchanged when o1 is substituted for o2 then S is a subtype of T.</p>
+<p>&emsp;&emsp;中文解释1：如果对每一个类型为S的对象o1，都有类型为T的对象o2，使得以T定义的所有程序P在所有的对象o1被替换成o2时，程序P的行为没有发生变化，那么类型S是类型T的子类型。</p>
+<p>&emsp;&emsp;英文定义2：Functions that use pointers or references to base classes must be able to use objects of derived classes without knowing it.</p>
+<p>&emsp;&emsp;中文解释2：所有引用基类的地方必须能透明的使用其子类的对象。通俗的讲，只要父类能出现的地方子类就可以出现，而且将父类替换为子类不会导致程序出现任何错误或者异常，但是，反过来不行，有子类出现的地方，替换为父类程序未必还能正常。</p>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>&emsp;&emsp;使用基类的地方可以随意使用其子类。这一原则是对继承机制进行约束规范的体现，它保证了基类能真正的被复用，衍生类在基类基础上增加新的行为。</p>
+<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><p>&emsp;&emsp;增强程序的健壮性，可扩展性。</p>
+<h2 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h2><p>&emsp;&emsp;在使用里氏替换原则，要求尽量避免子类的“个性”，因为子类一旦有“个性”，则子类和父类的关系难以调和，把子类作为父类使用，子类的“个性”会被抹杀。使用子类作为单独的一个业务来使用，则会让代码的耦合关系变得扑朔迷离，缺乏类替换的标准。</p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><ul>
+<li>子类可以实现父类的抽象方法，但是不能覆盖父类的非抽象方法</li>
+<li>子类可以增加自己的特有属性或行为</li>
+<li>当子类覆写或实现父类的方法时，方法的前置条件(即方法的形参) &gt;= 父类方法的输入参数范围</li>
+<li>当子类覆写或实现父类的方法时，方法的后置条件(即方法的输出结果) &lt;= 父类方法的输出结果范围</li>
+</ul>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><ul>
+<li><p>符合里氏替换原则</p>
+<p>比如我们的系统中会有用户管理，那么对于所有的用户我们定义一个类为User，我们还会有一些会员用户，我们为会员用户定义一个类为VIPUser，并且该类继承自User类。</p>
+<p>其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/lsp/1547290499422.png" alt="1547290499422"></p>
+<p>&emsp;&emsp;在这个类图中，User类包含一个userDescription的方法，VIPUser类继承自User类，所以也会继承userDescription方法，并且VIPUser类拥有获得折扣的特权。通过以下代码实现这个类图，并在Client类中通过main方法体现父类可以被子类替换的情况。</p>
+<p>&emsp;&emsp;User类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">userDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"我是一个普通用户"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;VIPUser类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VIPUser</span> <span class="keyword">extends</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">userDescription</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"我是一个VIP用户"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getDistount</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我获得了9折优惠"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在Client类中直接调用父类，及使用子类替换父类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		User user;</span><br><span class="line">		<span class="comment">//调用父类</span></span><br><span class="line">		user=<span class="keyword">new</span> User();		</span><br><span class="line">		user.userDescription();</span><br><span class="line">		<span class="comment">//用子类替换父类</span></span><br><span class="line">		user=<span class="keyword">new</span> VIPUser();		</span><br><span class="line">		user.userDescription();</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;输出结果：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--&gt;我是一个普通用户</span><br><span class="line">--&gt;我是一个VIP用户</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;通过这个代码，可以看出，在使用父类User的位置，直接替换成子类VIPUser，程序仍然可以正常执行，这就符合里氏替换原则。</p>
+</li>
+<li><p>子类无法满足父类业务功能</p>
+<p>&emsp;&emsp;我们在父类中定义了必须实现的抽象业务功能，要求子类在继承父类时实现这些业务功能以满足业务逻辑，但是当某一子类在继承父类后发现该子类无法完全实现父类的方法，或者重写父类方法后已经发生畸变，导致业务逻辑无法运行，这种情况下，建议断开父子继承关系，采用依赖、聚合、组合的方式代替继承。</p>
+<p>&emsp;&emsp;比如一台电脑，包含了屏幕、主机、键盘、鼠标等硬件，我们定义一个抽象类作为父类，来显示各个部件的功能。后续的电脑作为子类来继承这个抽象类。</p>
+<p>&emsp;&emsp;其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/lsp/1547316870168.png" alt="1547316870168"></p>
+<p>&emsp;&emsp;其代码如下：</p>
+<p>&emsp;&emsp;AbstractComputer:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractComputer</span> </span>&#123;</span><br><span class="line">	<span class="comment">//屏幕的功能</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">screenFunction</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//主机的功能</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">HostFunction</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//键盘的功能</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">keyboardFunction</span><span class="params">()</span></span>;</span><br><span class="line">	<span class="comment">//鼠标的功能</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">mouseFunction</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;Computer:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Computer</span> <span class="keyword">extends</span> <span class="title">AbstractComputer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">screenFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"这里是电脑屏幕的功能"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hostFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"这里是电脑主机的功能"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">keyboardFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"这里是电脑键盘的功能"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"这里是电脑鼠标的功能"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;在Computer子类中完全实现了AbstractComputer中的方法，且他们之间是符合里氏替换原则的。但是，有一天，出现了平板电脑Tablet，平板电脑也是电脑呀，于是，我们一开始考虑让Tablet作为AbstractComputer的子类，其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/lsp/1547316902078.png" alt="1547316902078"></p>
+<p>&emsp;&emsp;可是，平板电脑没有鼠标和键盘的硬件概念，而是增加了一个屏幕触摸功能。那么当Table类实现父类方法的时候代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tablet</span> <span class="keyword">extends</span> <span class="title">AbstractComputer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">screenFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"这里是电脑屏幕的功能"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hostFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"这里是电脑主机的功能"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">keyboardFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//由于平板电脑没有硬件键盘，该方法不实现;</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">mouseFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//由于平板电脑没有硬件鼠标，该方法不实现;</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">touchFunction</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"平板电脑具有触摸功能"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;此时，在调用父类AbstractComputer的地方，如果使用Tablet子类来替换的话，就会导致某些业务功能无法进行，这就违背了里氏替换原则。</p>
+<p>&emsp;&emsp;这种情况下，建议单独定义一个AbstractTablet父类，并且将屏幕与主机的属性、方法委托给AbstractComputer来处理。其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/lsp/1547325092171.png" alt="1547317515778"></p>
+<p>&emsp;&emsp;</p>
+<p>&emsp;&emsp;代码如下：</p>
+<p>&emsp;&emsp;AbstractTablet:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractTablet</span> </span>&#123;</span><br><span class="line">	<span class="keyword">protected</span> AbstractComputer abstractComputer;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">AbstractTablet</span><span class="params">(AbstractComputer _abstractComput)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.abstractComputer=_abstractComput;</span><br><span class="line">	&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">touchFunction</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//将显示屏幕和主机的功能委托给AbstractComputer类来处理</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">screenFunction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		abstractComputer.screenFunction();</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">hostFunction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		abstractComputer.hostFunction();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;Tablet:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Tablet</span> <span class="keyword">extends</span> <span class="title">AbstractTablet</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Tablet</span><span class="params">(AbstractComputer _abstractComputer)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(_abstractComputer);</span><br><span class="line">		<span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">touchFunction</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"平板电脑具有触摸功能"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		AbstractTablet tablet=<span class="keyword">new</span> Tablet(<span class="keyword">new</span> Computer());</span><br><span class="line">		tablet.screenFunction();</span><br><span class="line">		tablet.hostFunction();</span><br><span class="line">		tablet.touchFunction();</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>子类可以增加自己的特有属性或行为</p>
+<p>&emsp;&emsp;比如给Computer增加了一个摄像头功能。那么此时在使用父类的位置替换为子类，是可行的，但是在使用子类的的位置替换为父类不可行的，会报java.lang.ClassCastException异常，即向下转型不成功。也就是里氏替换原则中的有子类出现的地方父类未必可以出现。</p>
+</li>
+<li><p>当子类覆写或实现父类的方法时，方法的前置条件(即方法的形参) &gt;= 父类方法的输入参数范围</p>
+<p>&emsp;&emsp;我们定义的AbstractComputer是Computer的父类，通过定义一个Father类和一个Son类，并分别修改其中getComputer中的参数来验证该说法。</p>
+<p>&emsp;&emsp;代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getComputer</span><span class="params">(Computer computer)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"父类被调用"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//重写getComputer方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getComputer</span><span class="params">(AbstractComputer abstractComputer)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"子类被调用"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//Father father=new Father();</span></span><br><span class="line">		<span class="comment">//father.getComputer(new Computer());</span></span><br><span class="line">		<span class="comment">//替换为子类</span></span><br><span class="line">		Son father=<span class="keyword">new</span> Son();</span><br><span class="line">		father.getComputer(<span class="keyword">new</span> Computer());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>&emsp;&emsp;此时子类的参数AbstractComputer比父类的参数Computer范围大，将父类替换为子类后，输出结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--&gt;父类被调用</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;遵循里氏替换原则。</p>
+<p>&emsp;&emsp;交换一下参数，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getComputer</span><span class="params">(AbstractComputer abstractComputer)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"父类被调用"</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//重写getComputer方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getComputer</span><span class="params">(Computer computer)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		System.out.println(<span class="string">"子类被调用"</span>);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="comment">//Father father=new Father();</span></span><br><span class="line">		<span class="comment">//father.getComputer(new Computer());</span></span><br><span class="line">		<span class="comment">//替换为子类</span></span><br><span class="line">		Son father=<span class="keyword">new</span> Son();</span><br><span class="line">		father.getComputer(<span class="keyword">new</span> Computer());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;此时子类的参数Computer比父类的参数AbstractComputer范围小，将父类替换为子类后，输出结果为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--&gt;子类被调用</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;用子类替换父类后，执行结果发生变化，违背了里氏替换原则。</p>
+<ul>
+<li><p>当子类覆写或实现父类的方法时，方法的后置条件(即方法的输出结果) &lt;= 父类方法的输出结果范围</p>
+<p>分两种情况：</p>
+<ul>
+<li><p>覆写@Override，要求子类返回值的范围必须小于等于父类返回值的范围。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> AbstractComputer <span class="title">getComputer</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> Computer <span class="title">getComputer</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>重写@Overload，因为输入的参数类型和数量不一致，此时参考前置条件。</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;里氏替换原则为良好的继承定义了一个规范。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+    
+    <div>
+		  
+		</div>
+		
+		<div>
+      
+		</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://blog.zhaozg.top/2018/12/14/1/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -831,7 +1108,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  776
+                  792
                 </span>
               
 
@@ -876,6 +1153,7 @@
 <p>&emsp;&emsp;简称：SRP</p>
 <p>&emsp;&emsp;英文定义：There should never be more than on reason for a class to change.</p>
 <p>&emsp;&emsp;中文解释：不要有多过一个引起类变更的原因。</p>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>&emsp;&emsp;一个类只关心一个职责。</p>
 <h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><ul>
 <li>降低类、接口、方法的复杂性，明确定义相应职责；</li>
 <li>提高可读性</li>
@@ -913,19 +1191,19 @@
 <li>用户短信验证</li>
 </ul>
 <p>其类图如下：</p>
-<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547226560754.png" alt="1547226560754"></p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547226560754.png" alt="1547226560754"></p>
 <p>&emsp;&emsp;在这个类图中，用户的属性和行为没有进行拆分，这个是违背单一职责原则的。在项目中依据单一职责重构后的类图为：</p>
-<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547228299351.png" alt="1547228299351"></p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228299351.png" alt="1547228299351"></p>
 </li>
 <li><p>行为间的拆分</p>
-<p>&emsp;&emsp;比如为定义了一个操作电脑的接口，包含了开机、关机、打字这样的行为。其类图如下：</p>
-<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547228876793.png" alt="1547228876793"></p>
+<p>&emsp;&emsp;比如为定义了一个操作电脑的接口，包含了开机、关机、打字这样的方法。其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228876793.png" alt="1547228876793"></p>
 </li>
 </ul>
 <p>  &emsp;&emsp;但是实际上开机、关机的行为和打字的行为在职责上的变化并不会互相影响。所以这种行为之间是可以使用单一职责原则的。对接口拆分，并分别定义其实现类，再组合成Computer类。其类图如下：</p>
-<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/1547229448879.png" alt="1547229448879"></p>
+<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229448879.png" alt="1547229448879"></p>
 <p>  &emsp;&emsp;在这样的操作下，是符合单一职责原则的，但是Computer类需要将ComputerControl和ComputerOption组合在一起才能使用，这种情况，增加了类之间的耦合关系，同时增加了类的复杂性，在项目中我们通常调整为如下情况：</p>
-<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/1547229693614.png" alt="1547229693614"></p>
+<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229693614.png" alt="1547229693614"></p>
 <ul>
 <li><p>方法间的拆分</p>
 <p>比如如下方法：</p>
@@ -1024,7 +1302,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1106,7 +1384,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3k</span>
+    <span title="Site words total count">5.5k</span>
   
   -->
 </div>

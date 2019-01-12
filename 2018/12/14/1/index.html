@@ -89,16 +89,16 @@
 <meta property="og:site_name" content="逃梦红尘">
 <meta property="og:description" content="设计原则之单一职责—-逃梦 定义&amp;emsp;&amp;emsp;单一职责原则。 &amp;emsp;&amp;emsp;英文全称：Simple Responsibility Principle。 &amp;emsp;&amp;emsp;简称：SRP &amp;emsp;&amp;emsp;英文定义：There should never be more than on reason for a class to change. &amp;emsp;&amp;emsp;中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/1547226560754.png">
-<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/1547228299351.png">
-<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/1547228876793.png">
-<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/1547229448879.png">
-<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/1547229693614.png">
-<meta property="og:updated_time" content="2019-01-12T06:55:46.619Z">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547226560754.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228299351.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228876793.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229448879.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229693614.png">
+<meta property="og:updated_time" content="2019-01-12T20:29:40.812Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计原则之单一职责">
 <meta name="twitter:description" content="设计原则之单一职责—-逃梦 定义&amp;emsp;&amp;emsp;单一职责原则。 &amp;emsp;&amp;emsp;英文全称：Simple Responsibility Principle。 &amp;emsp;&amp;emsp;简称：SRP &amp;emsp;&amp;emsp;英文定义：There should never be more than on reason for a class to change. &amp;emsp;&amp;emsp;中">
-<meta name="twitter:image" content="http://zhaozg.vip/Java/DesignPattern/Images/1547226560754.png">
+<meta name="twitter:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547226560754.png">
 
 
 
@@ -354,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  776
+                  792
                 </span>
               
 
@@ -397,6 +397,7 @@
 <p>&emsp;&emsp;简称：SRP</p>
 <p>&emsp;&emsp;英文定义：There should never be more than on reason for a class to change.</p>
 <p>&emsp;&emsp;中文解释：不要有多过一个引起类变更的原因。</p>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>&emsp;&emsp;一个类只关心一个职责。</p>
 <h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><ul>
 <li>降低类、接口、方法的复杂性，明确定义相应职责；</li>
 <li>提高可读性</li>
@@ -434,19 +435,19 @@
 <li>用户短信验证</li>
 </ul>
 <p>其类图如下：</p>
-<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547226560754.png" alt="1547226560754"></p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547226560754.png" alt="1547226560754"></p>
 <p>&emsp;&emsp;在这个类图中，用户的属性和行为没有进行拆分，这个是违背单一职责原则的。在项目中依据单一职责重构后的类图为：</p>
-<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547228299351.png" alt="1547228299351"></p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228299351.png" alt="1547228299351"></p>
 </li>
 <li><p>行为间的拆分</p>
-<p>&emsp;&emsp;比如为定义了一个操作电脑的接口，包含了开机、关机、打字这样的行为。其类图如下：</p>
-<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547228876793.png" alt="1547228876793"></p>
+<p>&emsp;&emsp;比如为定义了一个操作电脑的接口，包含了开机、关机、打字这样的方法。其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228876793.png" alt="1547228876793"></p>
 </li>
 </ul>
 <p>  &emsp;&emsp;但是实际上开机、关机的行为和打字的行为在职责上的变化并不会互相影响。所以这种行为之间是可以使用单一职责原则的。对接口拆分，并分别定义其实现类，再组合成Computer类。其类图如下：</p>
-<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/1547229448879.png" alt="1547229448879"></p>
+<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229448879.png" alt="1547229448879"></p>
 <p>  &emsp;&emsp;在这样的操作下，是符合单一职责原则的，但是Computer类需要将ComputerControl和ComputerOption组合在一起才能使用，这种情况，增加了类之间的耦合关系，同时增加了类的复杂性，在项目中我们通常调整为如下情况：</p>
-<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/1547229693614.png" alt="1547229693614"></p>
+<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229693614.png" alt="1547229693614"></p>
 <ul>
 <li><p>方法间的拆分</p>
 <p>比如如下方法：</p>
@@ -476,7 +477,7 @@
 		
 		<div>
       
-        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/14/1/">设计原则之单一职责</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月14日 - 00:21</p> <p><span>最后更新:</span>2019年01月12日 - 14:55</p> <p><span>原始链接:</span><a href="/2018/12/14/1/" title="设计原则之单一职责">https://blog.zhaozg.top/2018/12/14/1/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/14/1/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
+        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/14/1/">设计原则之单一职责</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月14日 - 00:21</p> <p><span>最后更新:</span>2019年01月13日 - 04:29</p> <p><span>原始链接:</span><a href="/2018/12/14/1/" title="设计原则之单一职责">https://blog.zhaozg.top/2018/12/14/1/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/14/1/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
       
 		</div>
 
@@ -591,7 +592,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -655,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计原则之单一职责"><span class="nav-number">1.</span> <span class="nav-text">设计原则之单一职责</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number"></span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好处"><span class="nav-number"></span> <span class="nav-text">好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#难点"><span class="nav-number"></span> <span class="nav-text">难点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议"><span class="nav-number"></span> <span class="nav-text">建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number"></span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计原则之单一职责"><span class="nav-number">1.</span> <span class="nav-text">设计原则之单一职责</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number"></span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心思想"><span class="nav-number"></span> <span class="nav-text">核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好处"><span class="nav-number"></span> <span class="nav-text">好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#难点"><span class="nav-number"></span> <span class="nav-text">难点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议"><span class="nav-number"></span> <span class="nav-text">建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number"></span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></li></div>
             
 
           </div>
@@ -689,7 +690,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3k</span>
+    <span title="Site words total count">5.5k</span>
   
   -->
 </div>
