@@ -913,19 +913,19 @@
 <li>用户短信验证</li>
 </ul>
 <p>其类图如下：</p>
-<p><img src="http://localhost:8080/Java/DesignPattern/Images/1547226560754.png" alt="1547226560754"></p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547226560754.png" alt="1547226560754"></p>
 <p>&emsp;&emsp;在这个类图中，用户的属性和行为没有进行拆分，这个是违背单一职责原则的。在项目中依据单一职责重构后的类图为：</p>
-<p><img src="http://localhost:8080/Java/DesignPattern/Images/1547228299351.png" alt="1547228299351"></p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547228299351.png" alt="1547228299351"></p>
 </li>
 <li><p>行为间的拆分</p>
 <p>&emsp;&emsp;比如为定义了一个操作电脑的接口，包含了开机、关机、打字这样的行为。其类图如下：</p>
-<p><img src="http://localhost:8080/Java/DesignPattern/Images/1547228876793.png" alt="1547228876793"></p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/1547228876793.png" alt="1547228876793"></p>
 </li>
 </ul>
 <p>  &emsp;&emsp;但是实际上开机、关机的行为和打字的行为在职责上的变化并不会互相影响。所以这种行为之间是可以使用单一职责原则的。对接口拆分，并分别定义其实现类，再组合成Computer类。其类图如下：</p>
-<p>  <img src="http://localhost:8080/Java/DesignPattern/Images/1547229448879.png" alt="1547229448879"></p>
+<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/1547229448879.png" alt="1547229448879"></p>
 <p>  &emsp;&emsp;在这样的操作下，是符合单一职责原则的，但是Computer类需要将ComputerControl和ComputerOption组合在一起才能使用，这种情况，增加了类之间的耦合关系，同时增加了类的复杂性，在项目中我们通常调整为如下情况：</p>
-<p>  <img src="http://localhost:8080/Java/DesignPattern/Images/1547229693614.png" alt="1547229693614"></p>
+<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/1547229693614.png" alt="1547229693614"></p>
 <ul>
 <li><p>方法间的拆分</p>
 <p>比如如下方法：</p>
