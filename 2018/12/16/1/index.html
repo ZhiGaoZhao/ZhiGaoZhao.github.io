@@ -91,7 +91,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/dip/1547368307889.png">
 <meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/dip/1547370171026.png">
-<meta property="og:updated_time" content="2019-01-13T09:52:48.121Z">
+<meta property="og:updated_time" content="2019-01-14T09:16:07.534Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计原则之依赖倒置">
 <meta name="twitter:description" content="设计原则之依赖倒置—-逃梦 定义&amp;emsp;&amp;emsp;依赖倒置原则。 &amp;emsp;&amp;emsp;英文全称：Dependence Inversion Principle。 &amp;emsp;&amp;emsp;简称：DIP &amp;emsp;&amp;emsp;英文定义：High level modules should not depend upon low level modules. Both should depend">
@@ -483,7 +483,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> <span class="keyword">implements</span> <span class="title">IPerson</span> </span>&#123;</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">play</span><span class="params">(IInstrument iInstrument)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		iInstrument.perform();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;依赖倒置原则的本质就是通过抽象(接口或抽象类)使各个类或模块的实现彼此独立，互不影响，降低类或模块间的耦合度。使用这一原则在项目中可以规避一些非技术因素引起的问题，必须需求变更，人员变动等。面向接口编程是依赖倒置原则的核心。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;依赖倒置原则的本质就是通过抽象(接口或抽象类)使各个类或模块的实现彼此独立，互不影响，降低类或模块间的耦合度。使用这一原则在项目中可以规避一些非技术因素引起的问题，比如需求变更，人员变动等。面向接口编程是依赖倒置原则的核心。</p>
 
       
     </div>
@@ -504,7 +504,7 @@
 		
 		<div>
       
-        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/16/1/">设计原则之依赖倒置</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月16日 - 00:21</p> <p><span>最后更新:</span>2019年01月13日 - 17:52</p> <p><span>原始链接:</span><a href="/2018/12/16/1/" title="设计原则之依赖倒置">https://blog.zhaozg.top/2018/12/16/1/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/16/1/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
+        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/16/1/">设计原则之依赖倒置</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月16日 - 00:21</p> <p><span>最后更新:</span>2019年01月14日 - 17:16</p> <p><span>原始链接:</span><a href="/2018/12/16/1/" title="设计原则之依赖倒置">https://blog.zhaozg.top/2018/12/16/1/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/16/1/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
       
 		</div>
 
