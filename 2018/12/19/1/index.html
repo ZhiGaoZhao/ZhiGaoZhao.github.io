@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="设计原则,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="逃梦红尘" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="设计原则之开闭原则—-逃梦 定义&amp;emsp;&amp;emsp;开闭原则。 &amp;emsp;&amp;emsp;英文全称：Open Close Principle。 &amp;emsp;&amp;emsp;简称：OCP &amp;emsp;&amp;emsp;英文定义1：Software entities like classes , modules and functions should be open for extension but cl">
+<meta name="keywords" content="设计原则">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计原则之开闭原则">
+<meta property="og:url" content="https://blog.zhaozg.top/2018/12/19/1/index.html">
+<meta property="og:site_name" content="逃梦红尘">
+<meta property="og:description" content="设计原则之开闭原则—-逃梦 定义&amp;emsp;&amp;emsp;开闭原则。 &amp;emsp;&amp;emsp;英文全称：Open Close Principle。 &amp;emsp;&amp;emsp;简称：OCP &amp;emsp;&amp;emsp;英文定义1：Software entities like classes , modules and functions should be open for extension but cl">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/ocp/1547572494565.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/ocp/1547572738658.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/ocp/1547574380216.png">
+<meta property="og:updated_time" content="2019-01-15T18:22:36.012Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计原则之开闭原则">
+<meta name="twitter:description" content="设计原则之开闭原则—-逃梦 定义&amp;emsp;&amp;emsp;开闭原则。 &amp;emsp;&amp;emsp;英文全称：Open Close Principle。 &amp;emsp;&amp;emsp;简称：OCP &amp;emsp;&amp;emsp;英文定义1：Software entities like classes , modules and functions should be open for extension but cl">
+<meta name="twitter:image" content="http://zhaozg.vip/Java/DesignPattern/Images/ocp/1547572494565.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://blog.zhaozg.top/2018/12/19/1/">
+
+
+
+
+
+  <title>设计原则之开闭原则 | 逃梦红尘</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">逃梦红尘</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">静水流深</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://blog.zhaozg.top/2018/12/19/1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="逃梦">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="逃梦红尘">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">设计原则之开闭原则</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-19T00:21:12+08:00">
+                2018-12-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计原则/" itemprop="url" rel="index">
+                    <span itemprop="name">设计原则</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/19/1/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/19/1/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.9k
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="设计原则之开闭原则"><a href="#设计原则之开闭原则" class="headerlink" title="设计原则之开闭原则"></a>设计原则之开闭原则</h3><p>—-逃梦</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>&emsp;&emsp;开闭原则。</p>
+<p>&emsp;&emsp;英文全称：Open Close Principle。</p>
+<p>&emsp;&emsp;简称：OCP</p>
+<p>&emsp;&emsp;英文定义1：Software entities like classes , modules and functions should be open for extension but closed for modifications.</p>
+<p>&emsp;&emsp;中文解释：一个软件实体，如类、模块或函数应该对扩展开放，对修改关闭。</p>
+<p>&emsp;&emsp;中文解释：一个软件实体应该通过扩展来实现变化，而不是通过修改已有的代码来实现变化。</p>
+<p>&emsp;&emsp;概述：开闭原则是最基础的设计原则，它指导我们如何建立一个稳定、灵活的系统。</p>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>&emsp;&emsp;对于变化，优先考虑通过扩展实现。</p>
+<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><ul>
+<li>提高项目稳定性；</li>
+<li>提高项目灵活性；</li>
+<li>提高代码复用性；</li>
+<li>提高可维护性；</li>
+</ul>
+<h2 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h2><p>&emsp;&emsp;开闭原则是最基础的原则，是单一职责原则、里氏替换原则、依赖倒置原则、接口隔离原则、迪米特法则的基础，但它也是一个原则，没有标准，在实际项目中需要结合实际情况使用。</p>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><ul>
+<li>抽象约束：抽象没有具体实现，有很多可能性，可以跟随需求的变化而变化。<ul>
+<li>通过接口或抽象类约束扩展，对扩展进行边界限定，不允许出现在接口或抽象类中不存在的public方法。</li>
+<li>参数类型、引用对象尽可能使用接口或抽象类，而不是实现类。</li>
+<li>抽象层尽量稳定，一旦确定不允许修改。</li>
+</ul>
+</li>
+<li>通过元数据来控制模块行为，也就是通过配置参数来控制模块行为。</li>
+<li>制定项目章程，通过项目章程的约束，比通过接口和抽象类约束的效率更高，扩展性也不会降低。</li>
+<li>封装变化。<ul>
+<li>将相同的变化封装到一个接口或抽象类中。</li>
+<li>将不同的变化封装到不同的接口或抽象类中。</li>
+</ul>
+</li>
+</ul>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>我们上线了一款儿童英语启蒙的应用，其中有一部分是收费单元。针对不同的课程，我们给出了不同的定价，后来在运营过程中又进行了促销活动。以此为例来展示一下开闭原则的应用。</p>
+<p>原始类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/ocp/1547572494565.png" alt="1547572494565"></p>
+<p>代码实现如下：</p>
+<p>ICourse：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICourse</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCourseName</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPrice</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Course：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> <span class="keyword">implements</span> <span class="title">ICourse</span></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String CourseName;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> Price;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Course</span><span class="params">(String _courseName, <span class="keyword">int</span> _price)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.CourseName=_courseName;</span><br><span class="line">		<span class="keyword">this</span>.Price=_price;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCourseName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">return</span> CourseName;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">return</span> Price;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>User：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> ArrayList&lt;ICourse&gt; courseList=<span class="keyword">new</span> ArrayList&lt;ICourse&gt;();</span><br><span class="line">	<span class="keyword">static</span></span><br><span class="line">	&#123;</span><br><span class="line">		courseList.add(<span class="keyword">new</span> Course(<span class="string">"自然拼读"</span>, <span class="number">100000</span>));</span><br><span class="line">		courseList.add(<span class="keyword">new</span> Course(<span class="string">"高频词"</span>, <span class="number">80000</span>));</span><br><span class="line">		courseList.add(<span class="keyword">new</span> Course(<span class="string">"分级阅读"</span>, <span class="number">100000</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		NumberFormat numberFormat = NumberFormat.getCurrencyInstance();</span><br><span class="line">		numberFormat.setMaximumFractionDigits(<span class="number">2</span>);</span><br><span class="line">		System.out.println(<span class="string">"用户可以购买如下课程："</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(ICourse course:courseList)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"课程名称"</span>+course.getCourseName()+<span class="string">"\t课程价格："</span>+numberFormat.format(course.getPrice()/<span class="number">100</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--&gt;用户可以购买如下课程：</span><br><span class="line">--&gt;课程名称自然拼读	课程价格：￥<span class="number">1</span>,<span class="number">000.00</span></span><br><span class="line">--&gt;课程名称高频词	课程价格：￥<span class="number">800.00</span></span><br><span class="line">--&gt;课程名称分级阅读	课程价格：￥<span class="number">1</span>,<span class="number">000.00</span></span><br></pre></td></tr></table></figure>
+<p>后来在促销活动中，提供了折扣价，那么对于这个折扣价的实现，遵循开闭原则的话，其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/ocp/1547572738658.png" alt="1547572738658"></p>
+<p>代码实现如下：</p>
+<p>OffCourse:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OffCourse</span> <span class="keyword">extends</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">OffCourse</span><span class="params">(String _courseName, <span class="keyword">int</span> _price)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>(_courseName, _price);</span><br><span class="line">		<span class="comment">// TODO Auto-generated constructor stub</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPrice</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">super</span>.getPrice()*<span class="number">80</span>/<span class="number">100</span>;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>修改后的User：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.text.NumberFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> ArrayList&lt;ICourse&gt; courseList=<span class="keyword">new</span> ArrayList&lt;ICourse&gt;();</span><br><span class="line">	<span class="keyword">static</span></span><br><span class="line">	&#123;</span><br><span class="line">		courseList.add(<span class="keyword">new</span> OffCourse(<span class="string">"自然拼读"</span>, <span class="number">100000</span>));</span><br><span class="line">		courseList.add(<span class="keyword">new</span> OffCourse(<span class="string">"高频词"</span>, <span class="number">80000</span>));</span><br><span class="line">		courseList.add(<span class="keyword">new</span> OffCourse(<span class="string">"分级阅读"</span>, <span class="number">100000</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		NumberFormat numberFormat = NumberFormat.getCurrencyInstance();</span><br><span class="line">		numberFormat.setMaximumFractionDigits(<span class="number">2</span>);</span><br><span class="line">		System.out.println(<span class="string">"用户可以购买如下课程："</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(ICourse course:courseList)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"课程名称"</span>+course.getCourseName()+<span class="string">"\t课程价格："</span>+numberFormat.format(course.getPrice()/<span class="number">100</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这样只是简单的通过继承扩展了Course类，覆写了getPrice方法，在User类中将new Course修改成了new OffCourse就满足了变更的要求。</p>
+<p>写到这里，我们可以想一下，这个开闭原则用的值不值？如果折扣的逻辑比较复杂，后面的开发又不知道之前的折扣逻辑，每次都重新继承一个Course，对于维护的人来说也是个可怕的事情吧(当然，我们应该重视开发、变更、维护过程中文档知识库的形成)。事实上，在实际生活中，只要是卖产品的，好像都逃不开会有提供折扣的情况，那么我们是不是可以预测提供折扣功能是将来的一个需求变更点呢。如果能预测到这一点，那我们还得考虑有了折扣之后会怎么用呢，站在运营的角度，用户单纯看到原价和单纯看到折扣价其实区别不大，我们应该告诉用户他可以省多少钱。考虑到这样的场景，我们又应该如何来实现这个功能呢。</p>
+<p>一种是在一开始设计的时候，就考虑到会使用折扣价，在ICourse接口中加入getOffPrice()，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ICourse</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCourseName</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPrice</span><span class="params">()</span></span>;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOffPrice</span><span class="params">()</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>但是折扣价并不是一直存在的，它往往是针对某次活动有效的，而且这个折扣的计算规则也是变化的。于是考虑将其独立为一个接口，修改后类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/ocp/1547574380216.png" alt="1547574380216"></p>
+<p> ICourse， Course的实现与之前一致。增加了IOffCourse接口，并让OffCourse类实现IOffCourse接口。</p>
+<p>IOffCourse:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">IOffCourse</span> <span class="keyword">extends</span> <span class="title">ICourse</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOffPrice</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>OffCourse：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OffCourse</span> <span class="keyword">implements</span> <span class="title">IOffCourse</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> String Name;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">int</span> Price;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">OffCourse</span><span class="params">(String _name,<span class="keyword">int</span> _price)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.Name=_name;</span><br><span class="line">		<span class="keyword">this</span>.Price=_price;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getCourseName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">return</span> Name;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getPrice</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		<span class="keyword">return</span> Price;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="meta">@Override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getOffPrice</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> Price*<span class="number">80</span>/<span class="number">100</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在User类中修改如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> ArrayList&lt;IOffCourse&gt; courseList=<span class="keyword">new</span> ArrayList&lt;IOffCourse&gt;();</span><br><span class="line">	<span class="keyword">static</span></span><br><span class="line">	&#123;</span><br><span class="line">		courseList.add(<span class="keyword">new</span> OffCourse(<span class="string">"自然拼读"</span>, <span class="number">100000</span>));</span><br><span class="line">		courseList.add(<span class="keyword">new</span> OffCourse(<span class="string">"高频词"</span>, <span class="number">80000</span>));</span><br><span class="line">		courseList.add(<span class="keyword">new</span> OffCourse(<span class="string">"分级阅读"</span>, <span class="number">100000</span>));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		NumberFormat numberFormat = NumberFormat.getCurrencyInstance();</span><br><span class="line">		numberFormat.setMaximumFractionDigits(<span class="number">2</span>);</span><br><span class="line">		System.out.println(<span class="string">"用户可以购买如下课程："</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(IOffCourse course:courseList)</span><br><span class="line">		&#123;</span><br><span class="line">			System.out.println(<span class="string">"课程名称"</span>+course.getCourseName()+<span class="string">"\t原价："</span>+numberFormat.format(course.getPrice()/<span class="number">100</span>)+<span class="string">"\t折后价："</span>+numberFormat.format(course.getOffPrice()/<span class="number">100</span>)+<span class="string">"\t为您节省：："</span>+numberFormat.format((course.getPrice()-course.getOffPrice())/<span class="number">100</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>输出：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">--&gt;用户可以购买如下课程：</span><br><span class="line">--&gt;课程名称自然拼读	原价：￥<span class="number">1</span>,<span class="number">000.00</span>	折后价：￥<span class="number">800.00</span>	为您节省：：￥<span class="number">200.00</span></span><br><span class="line">--&gt;课程名称高频词	原价：￥<span class="number">800.00</span>	折后价：￥<span class="number">640.00</span>	为您节省：：￥<span class="number">160.00</span></span><br><span class="line">--&gt;课程名称分级阅读	原价：￥<span class="number">1</span>,<span class="number">000.00</span>	折后价：￥<span class="number">800.00</span>	为您节省：：￥<span class="number">200.00</span></span><br></pre></td></tr></table></figure>
+<p>在项目实施过程中，可能会遇到各种情况，结合自身的经验和项目环境，对项目需求变更风险的预测，这就是开闭原则中的预知变化。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;开闭原则是最基础的原则，是其他原则的领袖！</p>
+<p>&emsp;&emsp;在使用开闭原则时，需要注意的是：</p>
+<ul>
+<li>开闭原则也只是一个原则，要灵活应用。</li>
+<li>项目章程非常重要。</li>
+<li>总结经验，预知变化。</li>
+</ul>
+
+      
+    </div>
+    
+    
+    
+    
+    <div>
+		  
+		    ﻿<div> 
+	 
+		<div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束。<i class="fa fa-paw"></i>感谢您的阅读！-------------</div> 
+	 
+</div>
+
+		  
+		</div>
+		
+		<div>
+      
+        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/19/1/">设计原则之开闭原则</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月19日 - 00:21</p> <p><span>最后更新:</span>2019年01月16日 - 02:22</p> <p><span>原始链接:</span><a href="/2018/12/19/1/" title="设计原则之开闭原则">https://blog.zhaozg.top/2018/12/19/1/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/19/1/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
+      
+		</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计原则/" rel="tag"># 设计原则</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/18/1/" rel="next" title="设计原则之迪米特法则">
+                <i class="fa fa-chevron-left"></i> 设计原则之迪米特法则
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/10/1/" rel="prev" title="从零开始做游戏(二)：我的第一个程序">
+                从零开始做游戏(二)：我的第一个程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">逃梦</p>
+              <p class="site-description motion-element" itemprop="description">静，生命之完美；水，生命之本源；流，生命之体现；深，生命之蕴集.</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+          
+
+          
+          
+					<div id="music163player">
+						<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=194405&auto=1&height=66"></iframe>
+					</div>
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计原则之开闭原则"><span class="nav-number">1.</span> <span class="nav-text">设计原则之开闭原则</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number"></span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心思想"><span class="nav-number"></span> <span class="nav-text">核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好处"><span class="nav-number"></span> <span class="nav-text">好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#难点"><span class="nav-number"></span> <span class="nav-text">难点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议"><span class="nav-number"></span> <span class="nav-text">建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number"></span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></li></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        ﻿<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">逃梦</span>
+<!--
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">12.3k</span>
+  
+  -->
+</div>
+
+
+
+  <div class="powered-by"></div>
+
+
+<div> <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script> 本站总访问量 <span id="busuanzi_value_site_pv"></span> 次&nbsp&nbsp&nbsp 本站访客数<span id="busuanzi_value_site_uv"></span>人次 </div> 
+
+
+  <div class="theme-info"></div>
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'HoXjaKwO8EeV9wdRoNLu9EpW-gzGzoHsz',
+        appKey: '06xLodBKOXpQDvIEU0qdOsBd',
+        placeholder: '说点什么呗！',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
