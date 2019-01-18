@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Construct 2,游戏开发,">
+  <meta name="keywords" content="设计原则,">
 
 
 
@@ -81,23 +81,24 @@
 
 
 
-<meta name="description" content="从零开始做游戏(二)：我的第一个程序—-逃梦 序&amp;emsp;&amp;emsp;Construct 2是一款HTML5游戏开发引擎，但是在编程界大部分的第一个程序都是“Hello World”的程序，所以，今天，我们也来用Construct 2来编写我们的第一个“Hello World”程序。但是，在开始编写这个程序之前，让我们先来了解一下Construct 2的界面组成，以便于后续我们知道在什么位置选择">
-<meta name="keywords" content="Construct 2,游戏开发">
+<meta name="description" content="设计原则之单一职责—-逃梦 定义&amp;emsp;&amp;emsp;单一职责原则。 &amp;emsp;&amp;emsp;英文全称：Simple Responsibility Principle。 &amp;emsp;&amp;emsp;简称：SRP &amp;emsp;&amp;emsp;英文定义：There should never be more than on reason for a class to change. &amp;emsp;&amp;emsp;中">
+<meta name="keywords" content="设计原则">
 <meta property="og:type" content="article">
-<meta property="og:title" content="从零开始做游戏(二)：我的第一个程序">
-<meta property="og:url" content="https://blog.zhaozg.top/2019/01/10/1/index.html">
+<meta property="og:title" content="设计原则之单一职责">
+<meta property="og:url" content="https://blog.zhaozg.top/2018/12/14/2/index.html">
 <meta property="og:site_name" content="逃梦红尘">
-<meta property="og:description" content="从零开始做游戏(二)：我的第一个程序—-逃梦 序&amp;emsp;&amp;emsp;Construct 2是一款HTML5游戏开发引擎，但是在编程界大部分的第一个程序都是“Hello World”的程序，所以，今天，我们也来用Construct 2来编写我们的第一个“Hello World”程序。但是，在开始编写这个程序之前，让我们先来了解一下Construct 2的界面组成，以便于后续我们知道在什么位置选择">
+<meta property="og:description" content="设计原则之单一职责—-逃梦 定义&amp;emsp;&amp;emsp;单一职责原则。 &amp;emsp;&amp;emsp;英文全称：Simple Responsibility Principle。 &amp;emsp;&amp;emsp;简称：SRP &amp;emsp;&amp;emsp;英文定义：There should never be more than on reason for a class to change. &amp;emsp;&amp;emsp;中">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547054758550.png">
-<meta property="og:image" content="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055069443.png">
-<meta property="og:image" content="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055152724.png">
-<meta property="og:image" content="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055224910.png">
-<meta property="og:updated_time" content="2019-01-10T15:56:54.679Z">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547226560754.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228299351.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228876793.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229448879.png">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229693614.png">
+<meta property="og:updated_time" content="2019-01-18T15:28:04.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="从零开始做游戏(二)：我的第一个程序">
-<meta name="twitter:description" content="从零开始做游戏(二)：我的第一个程序—-逃梦 序&amp;emsp;&amp;emsp;Construct 2是一款HTML5游戏开发引擎，但是在编程界大部分的第一个程序都是“Hello World”的程序，所以，今天，我们也来用Construct 2来编写我们的第一个“Hello World”程序。但是，在开始编写这个程序之前，让我们先来了解一下Construct 2的界面组成，以便于后续我们知道在什么位置选择">
-<meta name="twitter:image" content="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547054758550.png">
+<meta name="twitter:title" content="设计原则之单一职责">
+<meta name="twitter:description" content="设计原则之单一职责—-逃梦 定义&amp;emsp;&amp;emsp;单一职责原则。 &amp;emsp;&amp;emsp;英文全称：Simple Responsibility Principle。 &amp;emsp;&amp;emsp;简称：SRP &amp;emsp;&amp;emsp;英文定义：There should never be more than on reason for a class to change. &amp;emsp;&amp;emsp;中">
+<meta name="twitter:image" content="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547226560754.png">
 
 
 
@@ -127,13 +128,13 @@
 
 
 
-  <link rel="canonical" href="https://blog.zhaozg.top/2019/01/10/1/">
+  <link rel="canonical" href="https://blog.zhaozg.top/2018/12/14/2/">
 
 
 
 
 
-  <title>从零开始做游戏(二)：我的第一个程序 | 逃梦红尘</title>
+  <title>设计原则之单一职责 | 逃梦红尘</title>
   
 
 
@@ -260,7 +261,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://blog.zhaozg.top/2019/01/10/1/">
+    <link itemprop="mainEntityOfPage" href="https://blog.zhaozg.top/2018/12/14/2/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="逃梦">
@@ -277,7 +278,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">从零开始做游戏(二)：我的第一个程序</h1>
+          <h1 class="post-title" itemprop="name headline">设计原则之单一职责</h1>
         
 
         <div class="post-meta">
@@ -289,8 +290,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-10T01:15:12+08:00">
-                2019-01-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-14T00:21:12+08:00">
+                2018-12-14
               </time>
             
 
@@ -312,19 +313,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/游戏开发/" itemprop="url" rel="index">
-                    <span itemprop="name">游戏开发</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/游戏开发/Construct-2/" itemprop="url" rel="index">
-                    <span itemprop="name">Construct 2</span>
+                  <a href="/categories/设计原则/" itemprop="url" rel="index">
+                    <span itemprop="name">设计原则</span>
                   </a>
                 </span>
 
@@ -341,8 +331,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/01/10/1/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/01/10/1/" itemprop="commentCount"></span>
+                <a href="/2018/12/14/2/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/14/2/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -364,7 +354,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  738
+                  792
                 </span>
               
 
@@ -401,35 +391,72 @@
       
 
       
-        <h3 id="从零开始做游戏-二-：我的第一个程序"><a href="#从零开始做游戏-二-：我的第一个程序" class="headerlink" title="从零开始做游戏(二)：我的第一个程序"></a>从零开始做游戏(二)：我的第一个程序</h3><p>—-逃梦</p>
-<h2 id="序"><a href="#序" class="headerlink" title="序"></a>序</h2><p>&emsp;&emsp;Construct 2是一款HTML5游戏开发引擎，但是在编程界大部分的第一个程序都是“Hello World”的程序，所以，今天，我们也来用Construct 2来编写我们的第一个“Hello World”程序。但是，在开始编写这个程序之前，让我们先来了解一下Construct 2的界面组成，以便于后续我们知道在什么位置选择什么样的控件，进行什么样的操作。</p>
-<h2 id="Construct-2的界面组成"><a href="#Construct-2的界面组成" class="headerlink" title="Construct 2的界面组成"></a>Construct 2的界面组成</h2><p><img src="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547054758550.png" alt="1547054758550"></p>
-<p>&emsp;&emsp;Construct 2主要包含了“菜单栏”、布局窗口、项目窗口、图层窗口、对象窗口和属性窗口。</p>
-<p>&emsp;&emsp;菜单栏：</p>
-<p>&emsp;&emsp;&emsp;&emsp;<img src="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055069443.png" alt="1547055069443">&emsp;&emsp;该按钮用于预览我们完成的作品。 </p>
-<p>&emsp;&emsp;&emsp;&emsp;<img src="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055152724.png" alt="1547055152724">&emsp;&emsp;该按钮用于在最终作品不能按照预期运行时，用于调试查找问题。 </p>
-<p>&emsp;&emsp;&emsp;&emsp;<img src="http://zhaozg.vip/Construct2Sets/C2/Imgs/1547055224910.png" alt="1547055224910">&emsp;&emsp;该按钮用于将我们的作品导出为对应的应用。</p>
-<p>&emsp;&emsp;项目窗口：该窗口用于显示我们整个作品中的文件结构及内容。 </p>
-<p>​    对象窗口：该窗口用于显示我们添加到作品中的各个控件，编程时我们称其为对象。 </p>
-<p>&emsp;&emsp;属性窗口：该窗口用于显示我们添加的控件的属性，我们可以通过调整该窗口中的属性值来改变控件的样式，动作等。</p>
-<p>&emsp;&emsp;布局窗口：该窗口是整个作品主要工作的区间。</p>
-<p>&emsp;&emsp;图层窗口：每个布局是可以添加多个图层的，比如我们可以放一个背景图层，在背景图层上放一个游戏图层，这样将不同的控件分别放置，以便于我们后续的修改和调整。 </p>
-<p>&emsp;&emsp;对于以上内容，需要大家记住，在后面的编程过程中，我们将频繁使用它们。</p>
-<p>&emsp;为了让大家容易理解和记忆，我们所有的操作都会尽可能的在上图标注的这几个位置进行，等大家熟练了之后，可以自行去研究其它更快捷、更灵活的操作方式。</p>
-<h3 id="我的Hello-World"><a href="#我的Hello-World" class="headerlink" title="我的Hello World"></a>我的Hello World</h3><p>&emsp;&emsp;接下来，我将通过视频来给大家演示如何编写我们的第一个Hello World程序。视频后我将列出关键操作步骤供大家参考。</p>
-<video src="http://zhaozg.vip/Construct2Sets/C2/Videos/Video.mp4" controls="controls" style="max-width: 100%; display: block; margin-left: auto; margin-right: auto;"><br>your browser does not support the video tag<br></video>
-
-<p>&emsp;&emsp;在这个示例中，我们主要执行了以下几个步骤：</p>
-<ul>
-<li>新建空白项目</li>
-<li>修改项目名称</li>
-<li>修改项目窗口大小</li>
-<li>修改布局窗口大小</li>
-<li>在布局窗口添加控件 Text</li>
-<li>修改Text属性窗口中的 “text” 属性</li>
-<li>预览程序</li>
+        <h3 id="设计原则之单一职责"><a href="#设计原则之单一职责" class="headerlink" title="设计原则之单一职责"></a>设计原则之单一职责</h3><p>—-逃梦</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>&emsp;&emsp;单一职责原则。</p>
+<p>&emsp;&emsp;英文全称：Simple Responsibility Principle。</p>
+<p>&emsp;&emsp;简称：SRP</p>
+<p>&emsp;&emsp;英文定义：There should never be more than on reason for a class to change.</p>
+<p>&emsp;&emsp;中文解释：不要有多过一个引起类变更的原因。</p>
+<h2 id="核心思想"><a href="#核心思想" class="headerlink" title="核心思想"></a>核心思想</h2><p>&emsp;&emsp;一个类只关心一个职责。</p>
+<h2 id="好处"><a href="#好处" class="headerlink" title="好处"></a>好处</h2><ul>
+<li>降低类、接口、方法的复杂性，明确定义相应职责；</li>
+<li>提高可读性</li>
+<li>提高扩展性</li>
+<li>提高可维护性</li>
+<li>降低变更引起的风险</li>
 </ul>
-<p>&emsp;&emsp;现在，我们已经在Construct 2中写出了我们的第一个程序，接下来，我们将开始我们的游戏，动画之旅。 </p>
+<h2 id="难点"><a href="#难点" class="headerlink" title="难点"></a>难点</h2><ul>
+<li>如何定义、划分职责</li>
+</ul>
+<h2 id="建议"><a href="#建议" class="headerlink" title="建议"></a>建议</h2><ul>
+<li>在接口上一定要做到单一职责</li>
+<li>在方法上一定要做到单一职责</li>
+<li>在类上尽可能做到单一职责</li>
+</ul>
+<p>&emsp;&emsp;单一职责拆分时考虑：</p>
+<ul>
+<li>属性和行为可以考虑进行拆分；</li>
+<li>行为间考察相互影响；</li>
+<li>一个方法尽可能只做一件事情</li>
+<li>类在拆分时要避免出现强关联情况，比如聚合、组合。</li>
+</ul>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><ul>
+<li><p>属性和行为拆分</p>
+<p>比如我们在系统开发过程中会涉及到用户管理模块。在用户信息中可能会包含如下操作：</p>
+<ul>
+<li>设置用户ID</li>
+<li>获取用户ID</li>
+<li>设置用户名称</li>
+<li>获取用户名称</li>
+<li>设置用户密码</li>
+<li>获取用户密码</li>
+<li>修改用户名称</li>
+<li>修改用户密码</li>
+<li>用户短信验证</li>
+</ul>
+<p>其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547226560754.png" alt="1547226560754"></p>
+<p>&emsp;&emsp;在这个类图中，用户的属性和行为没有进行拆分，这个是违背单一职责原则的。在项目中依据单一职责重构后的类图为：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228299351.png" alt="1547228299351"></p>
+</li>
+<li><p>行为间的拆分</p>
+<p>&emsp;&emsp;比如为定义了一个操作电脑的接口，包含了开机、关机、打字这样的方法。其类图如下：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547228876793.png" alt="1547228876793"></p>
+</li>
+</ul>
+<p>  &emsp;&emsp;但是实际上开机、关机的行为和打字的行为在职责上的变化并不会互相影响。所以这种行为之间是可以使用单一职责原则的。对接口拆分，并分别定义其实现类，再组合成Computer类。其类图如下：</p>
+<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229448879.png" alt="1547229448879"></p>
+<p>  &emsp;&emsp;在这样的操作下，是符合单一职责原则的，但是Computer类需要将ComputerControl和ComputerOption组合在一起才能使用，这种情况，增加了类之间的耦合关系，同时增加了类的复杂性，在项目中我们通常调整为如下情况：</p>
+<p>  <img src="http://zhaozg.vip/Java/DesignPattern/Images/srp/1547229693614.png" alt="1547229693614"></p>
+<ul>
+<li><p>方法间的拆分</p>
+<p>比如如下方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserInfo</span><span class="params">(String username,String password)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.UserName=username;</span><br><span class="line">		<span class="keyword">this</span>.Password=password;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>建议拆分为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setUserName</span><span class="params">(String username)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.UserName=username;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPassword</span><span class="params">(String password)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.Password=password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;单一职责原则是编写程序的标准，使用“职责”和“变更原因”来衡量接口、类、方法的设计是否优良，但是“职责”和“变更原因”又是无法量化的，在不同的项目，不同的环境中，标准也会不同。考虑到在实际项目中会受到项目工期、人员水平、业务需求熟悉度等条件的影响，会出现破坏单一职责的情况，此时，针对不同情况再分别对待吧。</p>
 
       
     </div>
@@ -450,7 +477,7 @@
 		
 		<div>
       
-        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2019/01/10/1/">从零开始做游戏(二)：我的第一个程序</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2019年01月10日 - 01:15</p> <p><span>最后更新:</span>2019年01月10日 - 23:56</p> <p><span>原始链接:</span><a href="/2019/01/10/1/" title="从零开始做游戏(二)：我的第一个程序">https://blog.zhaozg.top/2019/01/10/1/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2019/01/10/1/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
+        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/14/2/">设计原则之单一职责</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月14日 - 00:21</p> <p><span>最后更新:</span>2019年01月18日 - 23:28</p> <p><span>原始链接:</span><a href="/2018/12/14/2/" title="设计原则之单一职责">https://blog.zhaozg.top/2018/12/14/2/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/14/2/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
       
 		</div>
 
@@ -464,9 +491,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Construct-2/" rel="tag"># Construct 2</a>
-          
-            <a href="/tags/游戏开发/" rel="tag"># 游戏开发</a>
+            <a href="/tags/设计原则/" rel="tag"># 设计原则</a>
           
         </div>
       
@@ -479,15 +504,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/12/19/2/" rel="next" title="设计原则之开闭原则">
-                <i class="fa fa-chevron-left"></i> 设计原则之开闭原则
-              </a>
-            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/14/1/" rel="prev" title="从零开始做游戏(一)：环境搭建">
+                从零开始做游戏(一)：环境搭建 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -631,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#从零开始做游戏-二-：我的第一个程序"><span class="nav-number">1.</span> <span class="nav-text">从零开始做游戏(二)：我的第一个程序</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#序"><span class="nav-number"></span> <span class="nav-text">序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Construct-2的界面组成"><span class="nav-number"></span> <span class="nav-text">Construct 2的界面组成</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#我的Hello-World"><span class="nav-number">1.</span> <span class="nav-text">我的Hello World</span></a></li></ol></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计原则之单一职责"><span class="nav-number">1.</span> <span class="nav-text">设计原则之单一职责</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number"></span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#核心思想"><span class="nav-number"></span> <span class="nav-text">核心思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#好处"><span class="nav-number"></span> <span class="nav-text">好处</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#难点"><span class="nav-number"></span> <span class="nav-text">难点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#建议"><span class="nav-number"></span> <span class="nav-text">建议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number"></span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></li></div>
             
 
           </div>
