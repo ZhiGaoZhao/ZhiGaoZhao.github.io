@@ -81,18 +81,18 @@
 
 
 
-<meta name="description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;指导软件设计的六大原则分别是：单一职责原则(SRP)，里氏替换原则(LSP)，依赖倒置原则(DIP)，接口隔离原则(ISP)，迪米特法则(LoD)，开闭原则(OCP)。 &amp;emsp;&amp;emsp;其中，开闭原则">
+<meta name="description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;从某种角度来说，软件开发是通过计算机模拟真实世界的一个过程。那么当真实世界发生变化时，软件变更就成了必然，否则，软件的作用就会变得越来越小。 &amp;emsp;&amp;emsp;既然软件变更就如同生物进化一样，是一个必然的法则，那么，在软件开发过程中，如何快速的去应对这种变更就成了我们需要解决的问题。也就是如何提供软件系统的灵活性、可复用性、可维护性。 &amp;ems">
 <meta name="keywords" content="设计原则">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计原则之总结">
 <meta property="og:url" content="https://blog.zhaozg.top/2018/12/21/2/index.html">
 <meta property="og:site_name" content="逃梦红尘">
-<meta property="og:description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;指导软件设计的六大原则分别是：单一职责原则(SRP)，里氏替换原则(LSP)，依赖倒置原则(DIP)，接口隔离原则(ISP)，迪米特法则(LoD)，开闭原则(OCP)。 &amp;emsp;&amp;emsp;其中，开闭原则">
+<meta property="og:description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;从某种角度来说，软件开发是通过计算机模拟真实世界的一个过程。那么当真实世界发生变化时，软件变更就成了必然，否则，软件的作用就会变得越来越小。 &amp;emsp;&amp;emsp;既然软件变更就如同生物进化一样，是一个必然的法则，那么，在软件开发过程中，如何快速的去应对这种变更就成了我们需要解决的问题。也就是如何提供软件系统的灵活性、可复用性、可维护性。 &amp;ems">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-18T17:33:24.537Z">
+<meta property="og:updated_time" content="2019-01-19T17:45:22.826Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计原则之总结">
-<meta name="twitter:description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;指导软件设计的六大原则分别是：单一职责原则(SRP)，里氏替换原则(LSP)，依赖倒置原则(DIP)，接口隔离原则(ISP)，迪米特法则(LoD)，开闭原则(OCP)。 &amp;emsp;&amp;emsp;其中，开闭原则">
+<meta name="twitter:description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;从某种角度来说，软件开发是通过计算机模拟真实世界的一个过程。那么当真实世界发生变化时，软件变更就成了必然，否则，软件的作用就会变得越来越小。 &amp;emsp;&amp;emsp;既然软件变更就如同生物进化一样，是一个必然的法则，那么，在软件开发过程中，如何快速的去应对这种变更就成了我们需要解决的问题。也就是如何提供软件系统的灵活性、可复用性、可维护性。 &amp;ems">
 
 
 
@@ -348,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  72
+                  541
                 </span>
               
 
@@ -386,8 +386,19 @@
 
       
         <h3 id="设计原则之总结"><a href="#设计原则之总结" class="headerlink" title="设计原则之总结"></a>设计原则之总结</h3><p>—-逃梦</p>
-<p>&emsp;&emsp;指导软件设计的六大原则分别是：单一职责原则(SRP)，里氏替换原则(LSP)，依赖倒置原则(DIP)，接口隔离原则(ISP)，迪米特法则(LoD)，开闭原则(OCP)。</p>
-<p>&emsp;&emsp;其中，开闭原则</p>
+<p>&emsp;&emsp;从某种角度来说，软件开发是通过计算机模拟真实世界的一个过程。那么当真实世界发生变化时，软件变更就成了必然，否则，软件的作用就会变得越来越小。</p>
+<p>&emsp;&emsp;既然软件变更就如同生物进化一样，是一个必然的法则，那么，在软件开发过程中，如何快速的去应对这种变更就成了我们需要解决的问题。也就是如何提供软件系统的灵活性、可复用性、可维护性。</p>
+<p>&emsp;&emsp;设计原则就是为了解决这个问题产生的。</p>
+<p>&emsp;&emsp;指导软件设计的七大原则分别是：单一职责原则(SRP)，里氏替换原则(LSP)，依赖倒置原则(DIP)，接口隔离原则(ISP)，迪米特法则(LoD)，组合复用原则(CRP)，开闭原则(OCP)。</p>
+<p>&emsp;&emsp;这里对这些原则的定义做一个总结。</p>
+<p>&emsp;&emsp;其中，开闭原则是其他原则的基础。</p>
+<p>&emsp;&emsp;开闭原则：即一个软件实体，如类、模块、函数应该对扩展开放，对修改关闭。</p>
+<p>&emsp;&emsp;单一职责原则：一个类只负责一项职责。</p>
+<p>&emsp;&emsp;里氏替换原则：所有父类出现的地方，都可以用子类进行替换，子类可以扩展父类的功能，但不能改变父类原有功能。</p>
+<p>&emsp;&emsp;接口隔离原则：客户端需要什么接口，就给什么接口，不提供无关接口；接口中的方法尽量少，功能尽可能细分。</p>
+<p>&emsp;&emsp;依赖倒置原则：高层依赖抽象，不依赖低层实现；细节依赖抽象，抽象不依赖细节。</p>
+<p>&emsp;&emsp;迪米特法则：也叫最少知识原则，即我对你的事，知道的越少越好，而且我只跟我的直接朋友产生通信。</p>
+<p>&emsp;&emsp;组合复用原则：在设计中尽可能使用组合、聚合的方式，而不是继承的方式。如果要使用继承，需要满足里氏替换原则。</p>
 
       
     </div>
@@ -408,7 +419,7 @@
 		
 		<div>
       
-        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/21/2/">设计原则之总结</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月21日 - 00:21</p> <p><span>最后更新:</span>2019年01月19日 - 01:33</p> <p><span>原始链接:</span><a href="/2018/12/21/2/" title="设计原则之总结">https://blog.zhaozg.top/2018/12/21/2/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/21/2/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
+        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/21/2/">设计原则之总结</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月21日 - 00:21</p> <p><span>最后更新:</span>2019年01月20日 - 01:45</p> <p><span>原始链接:</span><a href="/2018/12/21/2/" title="设计原则之总结">https://blog.zhaozg.top/2018/12/21/2/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/21/2/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
       
 		</div>
 
@@ -625,7 +636,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">14.7k</span>
+    <span title="Site words total count">15.1k</span>
   
   -->
 </div>
