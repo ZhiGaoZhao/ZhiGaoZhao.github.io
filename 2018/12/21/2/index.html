@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="设计原则,">
+  <meta name="keywords" content="设计模式,">
 
 
 
@@ -81,18 +81,20 @@
 
 
 
-<meta name="description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;从某种角度来说，软件开发是通过计算机模拟真实世界的一个过程。那么当真实世界发生变化时，软件变更就成了必然，否则，软件的作用就会变得越来越小。 &amp;emsp;&amp;emsp;既然软件变更就如同生物进化一样，是一个必然的法则，那么，在软件开发过程中，如何快速的去应对这种变更就成了我们需要解决的问题。也就是如何提供软件系统的灵活性、可复用性、可维护性。 &amp;ems">
-<meta name="keywords" content="设计原则">
+<meta name="description" content="设计模式之单例模式—-逃梦 定义&amp;emsp;&amp;emsp;单例模式。 &amp;emsp;&amp;emsp;英文全称：Singleton Pattern。 &amp;emsp;&amp;emsp;简称：SP &amp;emsp;&amp;emsp;英文定义：Ensure a class has only one instance , and provide a global point of access to it. &amp;emsp;&amp;emsp;">
+<meta name="keywords" content="设计模式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设计原则之总结">
+<meta property="og:title" content="设计模式之单例模式">
 <meta property="og:url" content="https://blog.zhaozg.top/2018/12/21/2/index.html">
 <meta property="og:site_name" content="逃梦红尘">
-<meta property="og:description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;从某种角度来说，软件开发是通过计算机模拟真实世界的一个过程。那么当真实世界发生变化时，软件变更就成了必然，否则，软件的作用就会变得越来越小。 &amp;emsp;&amp;emsp;既然软件变更就如同生物进化一样，是一个必然的法则，那么，在软件开发过程中，如何快速的去应对这种变更就成了我们需要解决的问题。也就是如何提供软件系统的灵活性、可复用性、可维护性。 &amp;ems">
+<meta property="og:description" content="设计模式之单例模式—-逃梦 定义&amp;emsp;&amp;emsp;单例模式。 &amp;emsp;&amp;emsp;英文全称：Singleton Pattern。 &amp;emsp;&amp;emsp;简称：SP &amp;emsp;&amp;emsp;英文定义：Ensure a class has only one instance , and provide a global point of access to it. &amp;emsp;&amp;emsp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-01-19T17:45:22.826Z">
+<meta property="og:image" content="http://zhaozg.vip/Java/DesignPattern/Images/sp/1547991945068.png">
+<meta property="og:updated_time" content="2019-01-20T16:47:40.965Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设计原则之总结">
-<meta name="twitter:description" content="设计原则之总结—-逃梦 &amp;emsp;&amp;emsp;从某种角度来说，软件开发是通过计算机模拟真实世界的一个过程。那么当真实世界发生变化时，软件变更就成了必然，否则，软件的作用就会变得越来越小。 &amp;emsp;&amp;emsp;既然软件变更就如同生物进化一样，是一个必然的法则，那么，在软件开发过程中，如何快速的去应对这种变更就成了我们需要解决的问题。也就是如何提供软件系统的灵活性、可复用性、可维护性。 &amp;ems">
+<meta name="twitter:title" content="设计模式之单例模式">
+<meta name="twitter:description" content="设计模式之单例模式—-逃梦 定义&amp;emsp;&amp;emsp;单例模式。 &amp;emsp;&amp;emsp;英文全称：Singleton Pattern。 &amp;emsp;&amp;emsp;简称：SP &amp;emsp;&amp;emsp;英文定义：Ensure a class has only one instance , and provide a global point of access to it. &amp;emsp;&amp;emsp;">
+<meta name="twitter:image" content="http://zhaozg.vip/Java/DesignPattern/Images/sp/1547991945068.png">
 
 
 
@@ -128,7 +130,7 @@
 
 
 
-  <title>设计原则之总结 | 逃梦红尘</title>
+  <title>设计模式之单例模式 | 逃梦红尘</title>
   
 
 
@@ -272,7 +274,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设计原则之总结</h1>
+          <h1 class="post-title" itemprop="name headline">设计模式之单例模式</h1>
         
 
         <div class="post-meta">
@@ -307,8 +309,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/设计原则/" itemprop="url" rel="index">
-                    <span itemprop="name">设计原则</span>
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
                   </a>
                 </span>
 
@@ -348,7 +350,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  541
+                  1.2k
                 </span>
               
 
@@ -364,7 +366,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -385,20 +387,44 @@
       
 
       
-        <h3 id="设计原则之总结"><a href="#设计原则之总结" class="headerlink" title="设计原则之总结"></a>设计原则之总结</h3><p>—-逃梦</p>
-<p>&emsp;&emsp;从某种角度来说，软件开发是通过计算机模拟真实世界的一个过程。那么当真实世界发生变化时，软件变更就成了必然，否则，软件的作用就会变得越来越小。</p>
-<p>&emsp;&emsp;既然软件变更就如同生物进化一样，是一个必然的法则，那么，在软件开发过程中，如何快速的去应对这种变更就成了我们需要解决的问题。也就是如何提供软件系统的灵活性、可复用性、可维护性。</p>
-<p>&emsp;&emsp;设计原则就是为了解决这个问题产生的。</p>
-<p>&emsp;&emsp;指导软件设计的七大原则分别是：单一职责原则(SRP)，里氏替换原则(LSP)，依赖倒置原则(DIP)，接口隔离原则(ISP)，迪米特法则(LoD)，组合复用原则(CRP)，开闭原则(OCP)。</p>
-<p>&emsp;&emsp;这里对这些原则的定义做一个总结。</p>
-<p>&emsp;&emsp;其中，开闭原则是其他原则的基础。</p>
-<p>&emsp;&emsp;开闭原则：即一个软件实体，如类、模块、函数应该对扩展开放，对修改关闭。</p>
-<p>&emsp;&emsp;单一职责原则：一个类只负责一项职责。</p>
-<p>&emsp;&emsp;里氏替换原则：所有父类出现的地方，都可以用子类进行替换，子类可以扩展父类的功能，但不能改变父类原有功能。</p>
-<p>&emsp;&emsp;接口隔离原则：客户端需要什么接口，就给什么接口，不提供无关接口；接口中的方法尽量少，功能尽可能细分。</p>
-<p>&emsp;&emsp;依赖倒置原则：高层依赖抽象，不依赖低层实现；细节依赖抽象，抽象不依赖细节。</p>
-<p>&emsp;&emsp;迪米特法则：也叫最少知识原则，即我对你的事，知道的越少越好，而且我只跟我的直接朋友产生通信。</p>
-<p>&emsp;&emsp;组合复用原则：在设计中尽可能使用组合、聚合的方式，而不是继承的方式。如果要使用继承，需要满足里氏替换原则。</p>
+        <h3 id="设计模式之单例模式"><a href="#设计模式之单例模式" class="headerlink" title="设计模式之单例模式"></a>设计模式之单例模式</h3><p>—-逃梦</p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>&emsp;&emsp;单例模式。</p>
+<p>&emsp;&emsp;英文全称：Singleton Pattern。</p>
+<p>&emsp;&emsp;简称：SP</p>
+<p>&emsp;&emsp;英文定义：Ensure a class has only one instance , and provide a global point of access to it.</p>
+<p>&emsp;&emsp;中文解释：确保一个类只有一个实例，且自行实例化并向整个系统提供这个实例。</p>
+<h2 id="实现思想"><a href="#实现思想" class="headerlink" title="实现思想"></a>实现思想</h2><p>&emsp;&emsp;通过使用private的构造函数确保在一个应用中只产生一个实例。</p>
+<h2 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h2><ul>
+<li>由于单例模式在内存中只有一个实例，减少了内存开支，特别是一个对象需要频繁的创建、销毁，且创建和销毁的性能又无法优化，单例模式的优势会很明显；</li>
+<li>由于单例模式只生成一个实例，所以减少了系统的性能开销，当一个对象的产生需要比较多的资源时，比如读取配置、产生其他依赖对象时，则可以通过在应用启动时直接产生一个单例对象，然后用永久驻留内存的方式来解决；</li>
+<li>单例模式可以避免对资源的多重占用，例如一个写文件操作，由于只有一个实例存在内存中，避免对同一个资源文件的同时写操作；</li>
+<li>单例模式可以在系统设置全局的访问点，优化和共享资源访问，例如可以设计一个单例类，负责所有数据表的映射处理。</li>
+</ul>
+<h2 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h2><ul>
+<li>单例模式一般没有接口，扩展困难；</li>
+<li>单例模式对测试不利，如并行开发时，单例模式未完成的情况下，相关功能无法测试；</li>
+<li>单例模式与单一职责有冲突。</li>
+</ul>
+<h2 id="使用场景"><a href="#使用场景" class="headerlink" title="使用场景"></a>使用场景</h2><p>&emsp;&emsp;在一个系统中，要求一个类有且仅有一个对象。如：</p>
+<ul>
+<li>要求生成唯一序列号的环境；</li>
+<li>在整个项目中需要一个共享访问点或共享数据。比如一个web页面上的计数器，可以不用把每次刷新都记录到数据库中，使用单例模式保持计算器的值，并确保线程安全；</li>
+<li>创建一个对象需要消耗的资源过多，如要访问IO和数据库等资源；</li>
+<li>需要定义大量的静态常量和静态方法(如工具类)的环境，可以采用单例模式。</li>
+</ul>
+<h2 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h2><p>&emsp;&emsp;在高并发情况下，注意单例模式的线程同步问题。</p>
+<h2 id="扩展"><a href="#扩展" class="headerlink" title="扩展"></a>扩展</h2><p>&emsp;&emsp;单例模式可以扩展为有上限的多例模式。采用这种模式，在系统设计时可以决定在内存中有多少个实例，方便系统进行扩展，修改单例模式可能存在的性能问题，提供系统响应速度。</p>
+<h2 id="实践"><a href="#实践" class="headerlink" title="实践"></a>实践</h2><p>单例模式通用类图：</p>
+<p><img src="http://zhaozg.vip/Java/DesignPattern/Images/sp/1547991945068.png" alt="1547991945068"></p>
+<p>单例模式通用代码实现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Singleton</span> </span>&#123;</span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> Singleton singleton=<span class="keyword">new</span> Singleton();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//通过private构造函数限制产生多个对象</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">Singleton</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//通过getSingleton方法获得实例对象</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Singleton <span class="title">getSingleton</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		<span class="keyword">return</span> singleton;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//单例类中的其他方法，尽可能使用static</span></span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是一个单例"</span>+singleton.toString());</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Client调用代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			Singleton singleton=Singleton.getSingleton();</span><br><span class="line">			singleton.say();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有上限的多例模式代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LimitMultiple</span> </span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//定义上限</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> maxNumOfInstance=<span class="number">3</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//定义一个列表来存储所有实例</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;LimitMultiple&gt; limitMultiples=<span class="keyword">new</span> ArrayList&lt;LimitMultiple&gt;();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//每个实例都有自己的属性，使用ArrayList存放</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> ArrayList&lt;String&gt; nameList=<span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//定义一个变量存放当前实例序号</span></span><br><span class="line">	<span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> countNumofInstance=<span class="number">0</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//通过private构造函数，限制实例产生实例数量</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">LimitMultiple</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//给每个实例在构造函数中设置属性</span></span><br><span class="line">	<span class="function"><span class="keyword">private</span> <span class="title">LimitMultiple</span><span class="params">(String _name)</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		nameList.add(_name);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//产生所有对象的代码块</span></span><br><span class="line">	<span class="keyword">static</span></span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;maxNumOfInstance;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			limitMultiples.add(<span class="keyword">new</span> LimitMultiple(<span class="string">"第"</span>+(i+<span class="number">1</span>)+<span class="string">"个实例"</span>));</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//提供外部调用产生实例的方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> LimitMultiple <span class="title">getLimitMultiple</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		Random random=<span class="keyword">new</span> Random();</span><br><span class="line">		countNumofInstance=random.nextInt(maxNumOfInstance);</span><br><span class="line">		<span class="keyword">return</span> limitMultiples.get(countNumofInstance);</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//定义方法</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">say</span><span class="params">()</span></span></span><br><span class="line"><span class="function">	</span>&#123;</span><br><span class="line">		System.out.println(<span class="string">"我是"</span>+nameList.get(countNumofInstance));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>Client调用代码：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Client</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">5</span>;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			LimitMultiple limitMultiple=LimitMultiple.getLimitMultiple();</span><br><span class="line">			limitMultiple.say();</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>&emsp;&emsp;单例模式的应用比较广泛，比如在Spring中，每个Bean默认就是单例模式，这样Spring可以管理这些Bean的生命周期，决定什么时候创建，什么时候销毁。</p>
 
       
     </div>
@@ -419,7 +445,7 @@
 		
 		<div>
       
-        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/21/2/">设计原则之总结</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月21日 - 00:21</p> <p><span>最后更新:</span>2019年01月20日 - 01:45</p> <p><span>原始链接:</span><a href="/2018/12/21/2/" title="设计原则之总结">https://blog.zhaozg.top/2018/12/21/2/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/21/2/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
+        ﻿ <div class="my_post_copyright"> <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script> <!-- JS库 sweetalert 可修改路径 --> <script src="https://cdn.bootcss.com/jquery/2.0.0/jquery.min.js"></script> <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> <p><span>本文标题:</span><a href="/2018/12/21/2/">设计模式之单例模式</a></p> <p><span>文章作者:</span><a href="/" title="访问 逃梦 的个人博客">逃梦</a></p> <p><span>发布时间:</span>2018年12月21日 - 00:21</p> <p><span>最后更新:</span>2019年01月21日 - 00:47</p> <p><span>原始链接:</span><a href="/2018/12/21/2/" title="设计模式之单例模式">https://blog.zhaozg.top/2018/12/21/2/</a> <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="https://blog.zhaozg.top/2018/12/21/2/" aria-label="复制成功！"></i></span> </p> <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p> </div> <script> var clipboard = new Clipboard('.fa-clipboard'); $(".fa-clipboard").click(function(){ clipboard.on('success', function(){ swal({ title: "", text: '复制成功', icon: "success", showConfirmButton: true }); }); }); </script>  
       
 		</div>
 
@@ -433,7 +459,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/设计原则/" rel="tag"># 设计原则</a>
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
           
         </div>
       
@@ -456,8 +482,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/21/2/" rel="prev" title="设计模式之单例模式">
-                设计模式之单例模式 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/12/21/2/" rel="prev" title="设计原则之总结">
+                设计原则之总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -538,7 +564,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -602,7 +628,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计原则之总结"><span class="nav-number">1.</span> <span class="nav-text">设计原则之总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设计模式之单例模式"><span class="nav-number">1.</span> <span class="nav-text">设计模式之单例模式</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#定义"><span class="nav-number"></span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现思想"><span class="nav-number"></span> <span class="nav-text">实现思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优点"><span class="nav-number"></span> <span class="nav-text">优点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#缺点"><span class="nav-number"></span> <span class="nav-text">缺点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用场景"><span class="nav-number"></span> <span class="nav-text">使用场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number"></span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#扩展"><span class="nav-number"></span> <span class="nav-text">扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实践"><span class="nav-number"></span> <span class="nav-text">实践</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number"></span> <span class="nav-text">总结</span></a></li></div>
             
 
           </div>
@@ -636,7 +662,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">16.3k</span>
+    <span title="Site words total count">18.4k</span>
   
   -->
 </div>
